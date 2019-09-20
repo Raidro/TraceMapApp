@@ -5,6 +5,8 @@ import androidx.fragment.app.FragmentActivity;
 import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -63,6 +65,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 TrocRota();
             }
         });
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_tax,menu);
+
+        return true;
 
     }
 
