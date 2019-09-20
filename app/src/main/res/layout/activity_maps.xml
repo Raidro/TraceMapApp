@@ -17,6 +17,60 @@
         android:layout_height="wrap_content"
         android:hint="Digite o Endereco de Destino"/>
 
+
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <EditText  android:id="@+id/edtTaxa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Digite a Taxa"/>
+
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/btnCalcularTaxa"
+            android:layout_marginLeft="5dp"
+            android:text="Calcular Valor">
+
+        </Button>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="0 KM"
+            android:id="@+id/txtKM">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="0 min"
+            android:id="@+id/txtMIN">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="0 Valor"
+            android:id="@+id/txtValor">
+        </TextView>
+
+
+
+
+    </LinearLayout>
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

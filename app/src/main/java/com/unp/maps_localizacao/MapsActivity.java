@@ -68,15 +68,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_tax,menu);
-
-        return true;
-
-    }
 
     private void TrocRota() {
         String origem = edtOrigen.getText().toString();
