@@ -101,6 +101,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     }
 
+    private void calculaTaxa(){
+
+        String taxaDigitada = edtTaxa.getText().toString();
+        Float taxa = Float.parseFloat(taxaDigitada);
+
+
+
+    }
+
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
