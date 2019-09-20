@@ -125,22 +125,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Float taxaMin = Float.parseFloat(taxaMinDigitada) / 100;
 
 
+        double min = dist / 1000;
+        double km = dura / 60;
 
-            double min = dist / 1000;
-            double km = dura / 60;
+        ValFinal = TaxaFixa + (min * taxaMin) + (km * taxaKm);
 
-            ValFinal = TaxaFixa + (min * taxaMin) + (km * taxaKm);
+        total = String.format("Valor R$%.2f", ValFinal);
 
-            total = String.format("Valor R$%.2f", ValFinal);
-
-            txtValor.setText(total);
-
-
-
+        txtValor.setText(total);
 
 
     }
-
 
 
     @Override

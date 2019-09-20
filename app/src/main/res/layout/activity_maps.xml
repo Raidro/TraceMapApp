@@ -1,60 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapsActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MapsActivity">
 
-    <EditText android:id="@+id/edtOrigen"
+    <EditText
+        android:id="@+id/edtOrigen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:hint="Digite Endereco de Origem"/>
+        android:hint="Digite Endereco de Origem" />
 
-    <EditText  android:id="@+id/edtDestino"
+    <EditText
+        android:id="@+id/edtDestino"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Digite o Endereco de Destino"/>
+        android:hint="Digite o Endereco de Destino" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
 
-        <EditText  android:id="@+id/edtTaxaKM"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:hint= "Taxa KM"/>
-
-        <EditText  android:id="@+id/edtTaxaMin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:hint= "Taxa Min"/>
-
-
-
         <Button
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
             android:id="@+id/btnCalcularTaxa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:text="Calcular">
 
         </Button>
 
+        <EditText
+            android:id="@+id/edtTaxaMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:hint="Taxa Min" />
+
+
+        <EditText
+            android:id="@+id/edtTaxaKM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:hint="Taxa KM" />
 
 
         <TextView
+            android:id="@+id/txtValor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:text="0 Valor"
-            android:id="@+id/txtValor">
-        </TextView>
+            android:text="0 Valor"></TextView>
 
 
     </LinearLayout>
@@ -62,36 +63,26 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
 
+        <Button
+            android:id="@+id/btnTrocaRota"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Traçar Rota">
 
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:id="@+id/btnTrocaRota"
-        android:text="Traçar Rota">
-
-    </Button>
+        </Button>
 
 
-    <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"
-        android:src="@drawable/ic_distance">
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_distance">
 
-    </ImageView>
-
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtDistancia"
-        android:text="0 KM"
-        android:layout_marginLeft="5dp">
-
-    </TextView>
+        </ImageView>
 
         <ImageView
             android:layout_width="40dp"
@@ -102,22 +93,32 @@
 
         </ImageView>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:text="0 min"
-        android:id="@+id/txtDuracao">
+        <TextView
+            android:id="@+id/txtDistancia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="0 KM">
 
-    </TextView>
+        </TextView>
+
+        <TextView
+            android:id="@+id/txtDuracao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="0 min">
+
+        </TextView>
 
     </LinearLayout>
-<fragment
 
-    android:id="@+id/map"
-    android:name="com.google.android.gms.maps.SupportMapFragment"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MapsActivity" />
+    <fragment
+
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MapsActivity" />
 
 </LinearLayout>
