@@ -43,6 +43,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private double dist = 0;
     private double dura = 0;
     private double TaxaFixa = 6;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,32 +112,35 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     }
 
-    private void calculaTaxa(){
+    private void calculaTaxa() {
 
 
         double ValFinal;
         String total;
 
         String taxaKmDigitada = edtTaxaKm.getText().toString();
-        Float taxaKm = Float.parseFloat(taxaKmDigitada)/100;
+        Float taxaKm = Float.parseFloat(taxaKmDigitada) / 100;
 
         String taxaMinDigitada = edtTaxaMin.getText().toString();
-        Float taxaMin = Float.parseFloat(taxaMinDigitada)/100;
+        Float taxaMin = Float.parseFloat(taxaMinDigitada) / 100;
 
 
-        double min = dist/1000;
-        double km = dura/60;
 
-        ValFinal = TaxaFixa + (min * taxaMin) + (km * taxaKm);
+            double min = dist / 1000;
+            double km = dura / 60;
 
-        total = String.format("R$%.2f",ValFinal);
+            ValFinal = TaxaFixa + (min * taxaMin) + (km * taxaKm);
+
+            total = String.format("Valor R$%.2f", ValFinal);
+
+            txtValor.setText(total);
 
 
-        txtValor.setText(total);
 
 
 
     }
+
 
 
     @Override
