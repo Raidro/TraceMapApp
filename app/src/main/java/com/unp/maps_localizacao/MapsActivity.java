@@ -119,7 +119,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onDirectionFinderStart() {
 
-        progressDialog = progressDialog.show(this, "Aguarde!", "Tracando Rota...", true);
+        progressDialog = progressDialog.show(this, "Aguarde!", "Traçando Rota...", true);
 
         if (origenMakers != null) {
             for (Marker marker : origenMakers) {
