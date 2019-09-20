@@ -32,9 +32,9 @@ import java.util.List;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, DirectionFinderListener {
 
     private GoogleMap mMap;
-    private Button btnTrocaRota;
-    private EditText edtOrigen, edtDestino;
-    private TextView txtDuracao, txtDistancia;
+    private Button btnTrocaRota, btnCalcularTaxa;
+    private EditText edtOrigen, edtDestino, edtTaxa;
+    private TextView txtDuracao, txtDistancia, txtValor, txtMIN, txtKM;
 
     private List<Marker> origenMakers = new ArrayList<>();
     private List<Marker> destinationMakers = new ArrayList<>();
@@ -57,6 +57,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         txtDistancia = (TextView) findViewById(R.id.txtDistancia);
         txtDuracao = (TextView) findViewById(R.id.txtDuracao);
 
+        //adicionado recentes
+        btnCalcularTaxa = (Button) findViewById(R.id.btnCalcularTaxa);
+        edtTaxa = (EditText) findViewById(R.id.edtTaxa);
+        txtValor = (TextView) findViewById(R.id.txtValor);
+        txtMIN = (TextView) findViewById(R.id.txtMIN);
+        txtKM = (TextView) findViewById(R.id.txtKM);
 
         //evendo do click do botao
         btnTrocaRota.setOnClickListener(new View.OnClickListener() {
