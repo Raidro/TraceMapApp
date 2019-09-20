@@ -10,6 +10,7 @@
     <EditText android:id="@+id/edtOrigen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:hint="Digite Endereco de Origem"/>
 
     <EditText  android:id="@+id/edtDestino"
@@ -22,10 +23,17 @@
         android:layout_height="wrap_content">
 
 
-        <EditText  android:id="@+id/edtTaxa"
+        <EditText  android:id="@+id/edtTaxaKM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Digite a Taxa"/>
+            android:layout_marginLeft="10dp"
+            android:hint= "Taxa KM"/>
+
+        <EditText  android:id="@+id/edtTaxaMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:hint= "Taxa Min"/>
 
         <Button
             android:layout_height="wrap_content"
@@ -36,35 +44,35 @@
 
         </Button>
 
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:text="0 Taxa"-->
+<!--            android:id="@+id/txtTaxa">-->
+<!--        </TextView>-->
+
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:text="0 KM"-->
+<!--            android:id="@+id/txtKM">-->
+<!--        </TextView>-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:text="0 min"-->
+<!--            android:id="@+id/txtMIN">-->
+<!--        </TextView>-->
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="0 Taxa"
-            android:id="@+id/txtTaxa">
-        </TextView>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="0 KM"
-            android:id="@+id/txtKM">
-        </TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="0 min"
-            android:id="@+id/txtMIN">
-        </TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="30dp"
             android:text="0 Valor"
             android:id="@+id/txtValor">
         </TextView>

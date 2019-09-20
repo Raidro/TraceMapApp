@@ -5,8 +5,6 @@ import androidx.fragment.app.FragmentActivity;
 import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,8 +31,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private Button btnTrocaRota, btnCalcularTaxa;
-    private EditText edtOrigen, edtDestino, edtTaxa;
-    private TextView txtDuracao, txtDistancia, txtValor, txtMIN, txtKM;
+    private EditText edtOrigen, edtDestino, edtTaxaKm, edtTaxaMin;
+    private TextView txtDuracao, txtDistancia, txtValor, txtMIN, txtKM, txtTaxa;
 
     private List<Marker> origenMakers = new ArrayList<>();
     private List<Marker> destinationMakers = new ArrayList<>();
@@ -59,11 +57,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //adicionado recentes
         btnCalcularTaxa = (Button) findViewById(R.id.btnCalcularTaxa);
-        edtTaxa = (EditText) findViewById(R.id.edtTaxa);
+        edtTaxaKm = (EditText) findViewById(R.id.edtTaxaKM);
+        edtTaxaMin = (EditText) findViewById(R.id.edtTaxaMin);
         txtValor = (TextView) findViewById(R.id.txtValor);
         txtMIN = (TextView) findViewById(R.id.txtMIN);
         txtKM = (TextView) findViewById(R.id.txtKM);
-
+        txtTaxa = (TextView) findViewById(R.id.txtTaxa);
         //evendo do click do botao
         btnTrocaRota.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,8 +102,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void calculaTaxa(){
 
-        String taxaDigitada = edtTaxa.getText().toString();
+        String taxaDigitada = edtTaxaKm.getText().toString();
         Float taxa = Float.parseFloat(taxaDigitada);
+        txtTaxa.setText(taxa.toString());
 
 
 
