@@ -24,6 +24,7 @@ import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
 import java.io.UnsupportedEncodingException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,12 +33,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private Button btnTrocaRota, btnCalcularTaxa;
     private EditText edtOrigen, edtDestino, edtTaxaKm, edtTaxaMin;
-    private TextView txtDuracao, txtDistancia, txtValor, txtMIN, txtKM, txtTaxa;
+    private TextView txtDuracao, txtDistancia, txtValor;//txtMIN, txtKM, txtTaxa
 
     private List<Marker> origenMakers = new ArrayList<>();
     private List<Marker> destinationMakers = new ArrayList<>();
     private List<Polyline> polyLinesPaths = new ArrayList<>();
     private ProgressDialog progressDialog;
+
+    private double dist = 0;
+    private double dura = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,14 +64,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         edtTaxaKm = (EditText) findViewById(R.id.edtTaxaKM);
         edtTaxaMin = (EditText) findViewById(R.id.edtTaxaMin);
         txtValor = (TextView) findViewById(R.id.txtValor);
-        txtMIN = (TextView) findViewById(R.id.txtMIN);
-        txtKM = (TextView) findViewById(R.id.txtKM);
-        txtTaxa = (TextView) findViewById(R.id.txtTaxa);
+//        txtMIN = (TextView) findViewById(R.id.txtMIN);
+//        txtKM = (TextView) findViewById(R.id.txtKM);
+//        txtTaxa = (TextView) findViewById(R.id.txtTaxa);
+
         //evendo do click do botao
         btnTrocaRota.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TrocRota();
+            }
+        });
+        btnCalcularTaxa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                calculaTaxa();
             }
         });
 
@@ -102,9 +113,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void calculaTaxa(){
 
-        String taxaDigitada = edtTaxaKm.getText().toString();
-        Float taxa = Float.parseFloat(taxaDigitada);
-        txtTaxa.setText(taxa.toString());
+
+        double ValFinal;
+        String total;
+
+        String taxaKmDigitada = edtTaxaKm.getText().toString();
+        Float taxaKm = Float.parseFloat(taxaKmDigitada)/100;
+
+        String taxaMinDigitada = edtTaxaMin.getText().toString();
+        Float taxaMin = Float.parseFloat(taxaMinDigitada)/100;
+
+        DecimalFormat format = new DecimalFormat("#0.00");
+
+
+
+        double min = dist/60;
+        double km = dura/1000;
+
+        ValFinal = (min * taxaMin) + (km * taxaKm);
+
+        total = String.format("#R$%.2f",ValFinal);
+
+        txtValor.setText(total);
 
 
 
@@ -189,6 +219,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             for (int i = 0; i < route.points.size(); i++) {
                 polylineOptions.add(route.points.get(i));
 
+                dist = route.distance.value;
+                dura = route.duration.value;
             }
 
             polyLinesPaths.add(mMap.addPolyline(polylineOptions));
